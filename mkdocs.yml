@@ -1,0 +1,150 @@
+site_name: Hulation
+site_description: A modern web server for static sites, marketing landers, and digital-marketing / CDP workloads.
+site_author: Tlaloc LLC
+site_url: https://docs.tlaloc.us/hulation/
+copyright: Copyright &copy; 2026 Tlaloc LLC. AGPLv3 / SSPL-1.0 dual-licensed. No-AI-training clause applies.
+
+repo_name: tlalocweb/hulation
+repo_url: https://github.com/tlalocweb/hulation
+edit_uri: https://github.com/tlalocweb/hulation-docs/edit/main/docs/
+
+theme:
+  name: material
+  features:
+    - navigation.instant
+    - navigation.instant.progress
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.indexes
+    - navigation.top
+    - search.highlight
+    - search.suggest
+    - search.share
+    - content.code.copy
+    - content.code.annotate
+    - content.tabs.link
+    - content.action.edit
+    - toc.follow
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: amber
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: amber
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  font:
+    text: Roboto
+    code: Roboto Mono
+  icon:
+    repo: fontawesome/brands/github
+
+# Self-hosted Mermaid (no CDN) — D7 + §7 of PRD.
+# mermaid.min.js gets vendored under docs/assets/javascripts/ before launch;
+# until then the Mermaid blocks fall back to plain code blocks.
+extra_javascript:
+  - assets/javascripts/mermaid.min.js
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.snippets
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/tlalocweb/hulation
+
+nav:
+  - Home: index.md
+  - Quick Start:
+      - Hugo Site: quickstart/hugo.md
+      - One Server (Docker): quickstart/one-server.md
+      - hulactl on macOS / Linux: quickstart/hulactl.md
+      - hulaagent on a CI runner: quickstart/hulaagent.md
+  - Concepts:
+      - Architecture overview: concepts/architecture.md
+      - Servers, hosts, aliases: concepts/servers-hosts.md
+      - TLS modes: concepts/tls.md
+      - Git autodeploy & staging: concepts/git-autodeploy.md
+      - Visitor analytics & events: concepts/analytics.md
+      - Forms, landers, hooks: concepts/forms-landers.md
+      - Consent & privacy: concepts/consent-privacy.md
+      - Server-side forwarders: concepts/forwarders.md
+      - Live chat: concepts/live-chat.md
+      - Bot & abuse defense: concepts/badactor.md
+      - Auth (OPAQUE, TOTP, OIDC): concepts/auth.md
+      - Push notifications: concepts/push-notifications.md
+      - High availability: concepts/ha.md
+      - Agents & HLAP: concepts/agents-hlap.md
+  - Reference:
+      - config.yaml: reference/config.md
+      - hulactl: reference/hulactl.md
+      - HTTP API: reference/http-api.md
+      - gRPC API: reference/grpc-api.md
+      - Hooks (Risor): reference/hooks.md
+      - HLAP protocol: reference/hlap.md
+      - hula-agent binary: reference/hula-agent.md
+      - Agent YAML: reference/agent-yaml.md
+      - Environment variables: reference/env.md
+  - Examples / Cookbook:
+      - MkDocs + GitHub autodeploy: examples/mkdocs-github-autodeploy.md
+      - Hugo + GitHub autodeploy: examples/hugo-github-autodeploy.md
+      - Hugo + private repo: examples/hugo-private-repo.md
+      - Live staging via WebDAV: examples/live-staging-webdav.md
+      - Multi-site (one Hula): examples/multi-site.md
+      - Behind Cloudflare: examples/cloudflare-origin-ca.md
+      - Behind nginx / Traefik: examples/behind-reverse-proxy.md
+      - Backend container reverse proxy: examples/backend-containers.md
+      - Cookieless analytics: examples/cookieless-analytics.md
+      - Meta CAPI + GA4 forwarding: examples/server-side-forwarders.md
+      - Newsletter form with Risor: examples/newsletter-form-risor.md
+      - Lander A/B redirect: examples/lander-ab-redirect.md
+      - Operator alerts (email + push): examples/operator-alerts.md
+      - 3-node HA cluster (Raft): examples/ha-cluster.md
+      - GitHub Actions → hulaagent: examples/github-actions-hulaagent.md
+      - Local dev loop with hulaagent: examples/hulaagent-local-dev.md
+      - Kubernetes deployment: examples/kubernetes.md
+  - Operations:
+      - Upgrading Hula: operations/upgrading.md
+      - Backups & restore: operations/backups.md
+      - Observability: operations/observability.md
+      - Troubleshooting: operations/troubleshooting.md
+      - Security hardening: operations/security-checklist.md
+  - Releases: changelog.md
+  - License & FAQ: license-faq.md

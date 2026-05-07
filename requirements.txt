@@ -1,0 +1,7 @@
+# Pinned to match the versions baked into hula-builder-default.
+# When the builder image bumps, bump these so local `mkdocs serve`
+# matches what production renders. See:
+# https://github.com/tlalocweb/hulation/blob/main/builder-images/README.md
+mkdocs==1.6.1
+mkdocs-material==9.5.49
+pymdown-extensions==10.11.2
